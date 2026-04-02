@@ -13,9 +13,9 @@ public class CategoryMapper {
     }
 
     public static CategoryResponseDto toResponseDto(Category category) {
-        CategoryResponseDto dto = new CategoryResponseDto();
-        dto.setId(category.getId());
-        dto.setName(category.getName());
-        return dto;
+        return CategoryResponseDto.builder()
+                .id(category.getId())
+                .name(category.getName())
+                .build();
     }
 }
