@@ -8,14 +8,14 @@ import java.util.Set;
 import java.util.UUID;
 
 @Entity
+@Table(name = "products")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Product {
 
     @Id
-    @GeneratedValue(generator = "UUID")
-    @Column(columnDefinition = "BINARY(16)")
+    @GeneratedValue
     private UUID id;
 
     @Column(nullable = false)
@@ -28,23 +28,9 @@ public class Product {
 
     @ManyToMany
     @JoinTable(
-        name = "product_category",
-        joinColumns = @JoinColumn(name = "product_id"),
-        inverseJoinColumns = @JoinColumn(name = "category_id")
+            name = "product_category",
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id")
     )
-    @ToString.Exclude
     private Set<Category> categories;
-
-    public Product(String productName, BigDecimal price, LocalDate expirationDate) {
-        this.productName = productName;
-        this.price = price;
-        this.expirationDate = expirationDate;
-    }
-
-    public Product(String productName, BigDecimal price, LocalDate expirationDate, Set<Category> categories) {
-        this.productName = productName;
-        this.price = price;
-        this.expirationDate = expirationDate;
-        this.categories = categories;
-    }
 }

@@ -13,21 +13,12 @@ import java.util.UUID;
 public class Category {
 
     @Id
-    @GeneratedValue(generator = "UUID")
-    @Column(columnDefinition = "BINARY(16)")
+    @GeneratedValue
     private UUID id;
 
     @Column(nullable = false)
     private String name;
 
-    // Many-to-many relationship with Product
-    // Product is the owner of the relationship
-    @ToString.Exclude
     @ManyToMany(mappedBy = "categories")
     private Set<Product> products;
-
-    // Convenience constructor without products
-    public Category(String name) {
-        this.name = name;
-    }
 }
