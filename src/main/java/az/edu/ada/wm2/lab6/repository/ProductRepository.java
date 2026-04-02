@@ -7,5 +7,5 @@ import java.util.UUID;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product, UUID> {
-    // No additional method signatures needed; JpaRepository provides save, findById, findAll, deleteById, existsById
+
 }

@@ -25,17 +25,14 @@ public class Product {
 
     private LocalDate expirationDate;
 
-    // No-args constructor required by JPA
     public Product() {}
 
-    // Constructor without ID (ID will be generated automatically)
     public Product(String productName, BigDecimal price, LocalDate expirationDate) {
         this.productName = productName;
         this.price = price;
         this.expirationDate = expirationDate;
     }
 
-    // Constructor with ID
     public Product(UUID id, String productName, BigDecimal price, LocalDate expirationDate) {
         this.id = id;
         this.productName = productName;
@@ -43,7 +40,6 @@ public class Product {
         this.expirationDate = expirationDate;
     }
 
-    // Ensure UUID is generated before persisting if null
     @PrePersist
     public void ensureId() {
         if (this.id == null) {
@@ -51,7 +47,6 @@ public class Product {
         }
     }
 
-    // Getters and setters
     public UUID getId() { return id; }
     public void setId(UUID id) { this.id = id; }
 
