@@ -50,7 +50,6 @@ public class CategoryServiceImpl implements CategoryService {
         Product product = productRepository.findById(productId)
                 .orElseThrow(() -> new RuntimeException("Product not found with id: " + productId));
 
-        // Since Product is the owner of the relationship, add category to product
         if (!product.getCategories().contains(category)) {
             product.getCategories().add(category);
             productRepository.save(product);
