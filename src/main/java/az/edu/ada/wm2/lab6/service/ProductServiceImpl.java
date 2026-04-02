@@ -106,6 +106,6 @@ public class ProductServiceImpl implements ProductService {
         } else {
             dto.setCategoryNames(new ArrayList<>());
         }
-        return dto;
+        return dto; 
     }
 }
