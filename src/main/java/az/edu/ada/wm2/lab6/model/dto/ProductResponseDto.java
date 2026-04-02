@@ -1,7 +1,6 @@
 package az.edu.ada.wm2.lab6.model.dto;
 
 import lombok.*;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
